@@ -44,18 +44,13 @@ Follow these steps to run the application locally:
 
 ## Restoring the Database
 
+**Backup Database:**
+
+The backed-up database is available in this repository with the name db-luna.sql.
+
 To restore the database, follow these steps:
 
-1. **Backup Database:**
-
-   The backed-up database is available in this repository with the name db-luna.sql.
-
-   ```bash
-   # Example for PostgreSQL
-   pg_dump -U yourusername -d yourdatabase > db-luna.sql
-   ```
-
-2. **Restore Database:**
+1. **Restore Database:**
 
    Run the following command to restore the database.
 
