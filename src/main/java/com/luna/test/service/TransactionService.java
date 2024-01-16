@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface TransactionService {
 
+    boolean isProductReferenced (String productId);
     TransactionResponse createPurchase(TransactionRequest transactionRequest);
     TransactionResponse createSale(TransactionRequest transactionRequest);
     void voidTransaction(String transactionId, boolean isSale);

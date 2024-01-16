@@ -27,6 +27,11 @@ public class TransactionServiceImpl implements TransactionService {
     private final TaxRepository taxRepository;
 
     @Override
+    public boolean isProductReferenced(String productId) {
+        return transactionItemLineRepository.existsByProductId(productId);
+    }
+
+    @Override
     public TransactionResponse getTransactionById(String id,boolean isSale) {
         try {
             return transactionRepository.findByIdAndIsSale(id,isSale)

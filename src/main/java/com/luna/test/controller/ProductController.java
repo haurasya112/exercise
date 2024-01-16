@@ -4,6 +4,7 @@ package com.luna.test.controller;
 import com.luna.test.dto.UpdateProductDto;
 import com.luna.test.model.Product;
 import com.luna.test.service.ProductService;
+import com.luna.test.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,7 @@ import java.util.Optional;
 public class ProductController {
 
     private final ProductService productService;
+    private final TransactionService transactionService;
 
     @GetMapping
     public ResponseEntity<?> getAllProducts() {
@@ -73,6 +75,11 @@ public class ProductController {
     @DeleteMapping("/{productId}")
     public ResponseEntity<Map<String, String>> deleteProduct(@PathVariable String productId) {
         try {
+            if (transactionService.isProductReferenced(productId)) {
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(Map.of("message", "Product cannot be deleted."));
+            }
+
             productService.deleteProduct(productId);
             return ResponseEntity.ok().build();
         } catch (RuntimeException e) {
