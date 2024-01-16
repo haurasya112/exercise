@@ -7,7 +7,7 @@
 
 ## Introduction
 
-This application serves as one of the technical evaluation stages, allowing users to perform various transactions seamlessly. 
+This application serves as one of the technical evaluation stages, allowing users to perform various transactions seamlessly. [Documentation API](https://documenter.getpostman.com/view/23702805/2s9YsQ79td)
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Follow these steps to run the application locally:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/haurasya112/luna-be-test.git
+   git clone https://github.com/haurasya112/exercise.git
    ```
 
 2. **Navigate to the project directory:**
